@@ -1,9 +1,11 @@
 package textAnalyzer.util;
 
+
+import static net.serenitybdd.core.Serenity.recordReportData;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import net.serenitybdd.screenplay.Actor.ErrorHandlingMode;
 
 
 public class ReadFile {
@@ -14,16 +16,14 @@ public class ReadFile {
 		String fileContent = null;
 
 		try {
-			fileContent = readFile(PROJECT_PATH+FILE_PATH);
-			System.out.println("File content:");
-			System.out.println(fileContent);
+			fileContent = readFile(PROJECT_PATH + FILE_PATH);
+			recordReportData().withTitle("File content:").andContents(fileContent);
 		} catch (IOException e) {
-			System.err.println("Error reading the file: " + e.getMessage());
+			recordReportData().withTitle("Error reading the file:").andContents(e.getMessage());
 		}
 
 		return fileContent;
 	}
-	// "C:\Users\Milton\IdeaProjects\serenity-demo\src\test\resources\inputText"
 
 	public static String readFile(String filePath) throws IOException {
 		StringBuilder content = new StringBuilder();

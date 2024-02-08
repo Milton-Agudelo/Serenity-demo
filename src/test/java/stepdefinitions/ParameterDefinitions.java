@@ -1,4 +1,4 @@
-package textAnalyzer.stepdefinitions;
+package stepdefinitions;
 
 import io.cucumber.java.Before;
 import io.cucumber.java.ParameterType;
@@ -17,4 +17,6 @@ public class ParameterDefinitions {
     public void setTheStage() {
         OnStage.setTheStage(new OnlineCast());
     }
+
+
 }

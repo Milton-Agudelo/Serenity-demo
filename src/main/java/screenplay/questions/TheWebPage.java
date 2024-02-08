@@ -1,4 +1,9 @@
-package textAnalyzer.questions;
+package screenplay.questions;
+
+import static screenplay.user_interfaces.CountTextElementsPage.CHARACTERS_COUNT_FIELD;
+import static screenplay.user_interfaces.CountTextElementsPage.SENTENCES_COUNT_FIELD;
+import static screenplay.user_interfaces.CountTextElementsPage.WORDS_COUNT_FIELD;
+import static screenplay.user_interfaces.CountTextElementsPage.WORDS_DENSITY_FIELD;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -6,10 +11,6 @@ import lombok.NoArgsConstructor;
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.questions.Text;
 
-import static textAnalyzer.count.CountForm.CHARACTERS_COUNT_FIELD;
-import static textAnalyzer.count.CountForm.SENTENCES_COUNT_FIELD;
-import static textAnalyzer.count.CountForm.WORDS_COUNT_FIELD;
-import static textAnalyzer.count.CountForm.WORDS_DENSITY_FIELD;
 
 @NoArgsConstructor
 public class TheWebPage {

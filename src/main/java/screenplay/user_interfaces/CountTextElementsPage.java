@@ -1,8 +1,8 @@
-package textAnalyzer.count;
+package screenplay.user_interfaces;
 
 import net.serenitybdd.screenplay.targets.Target;
 
-public class CountForm {
+public class CountTextElementsPage {
     public static Target TEXT_INPUT_FIELD = Target.the("Text input field").locatedBy("#box");
 
     public static Target CHARACTERS_COUNT_FIELD = Target.the("Character count field").locatedBy("#character_count");

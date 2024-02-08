@@ -1,4 +1,4 @@
-package textAnalyzer.util;
+package utils;
 
 import static net.serenitybdd.core.Serenity.recordReportData;
 
@@ -10,25 +10,25 @@ import java.util.Map.Entry;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
-public class AnalyzeText {
+public class Count {
 
-	public static String countCharactersOf(String text) {
+	public static String charactersIn(String text) {
 		return formatCounter(String.valueOf(text.replace("\n",
 			"").length()));
 	}
 
-	public static String countWordsOf(String text) {
+	public static String wordsIn(String text) {
 		String[] words = text.split("[\\s/:]+");
 		return formatCounter(String.valueOf(words.length));
 	}
 
-	public static String countSentencesOf(String text) {
+	public static String sentencesIn(String text) {
 		text = text.replace(":\n", ":");
 		String[] sentences = text.split("[.!?\n]+");
 		return formatCounter(String.valueOf(sentences.length));
 	}
 
-	public static Map<String, Integer> getMostRepeatedWordsOf(Integer wordsNumber, String text) {
+	public static Map<String, Integer> mostRepeatedWordsIn(Integer wordsNumber, String text) {
 		List<Entry<String, Integer>> sortedWordList = getWordFrequencyOf(text);
 
 		Map<String, Integer> moreRepeatedWords = new LinkedHashMap<>();
@@ -52,12 +52,12 @@ public class AnalyzeText {
 			}
 		}
 
-		List<Map.Entry<String, Integer>> sortedWordList = new ArrayList<>(wordCount.entrySet());
+		List<Entry<String, Integer>> sortedWordList = new ArrayList<>(wordCount.entrySet());
 		sortedWordList.sort((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()));
 
 		String wordsHistogram = "";
 
-		for (Map.Entry<String, Integer> entry : sortedWordList) {
+		for (Entry<String, Integer> entry : sortedWordList) {
 			String word = entry.getKey();
 			int frequency = entry.getValue();
 			wordsHistogram += String.format("%-" + 15 + "s", word) + " : " +
